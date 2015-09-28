@@ -1,0 +1,208 @@
+\documentclass[subsection=false]{beamer}
+\setbeamertemplate{footline}[frame number] % numerar slides
+\setbeamertemplate{navigation symbols}{} % retirar barra de navegação
+
+\mode<presentation>
+\usetheme{Warsaw}
+
+\ifdefined\hyperref  
+
+\usepackage[brazil]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}  
+\usepackage{pgfpages}
+\usepackage{ifpdf}   
+\usepackage{multimedia}  
+\usepackage{color}   
+\usepackage{url} 
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage{listings}
+
+\lstset{%
+	linewidth=\textwidth,%framed box is the text size 
+	language=C,
+	xleftmargin=.25in,
+	xrightmargin=.25in, 
+	frame=trbl, 
+	columns=flexible, 
+	captionpos=t, 
+	upquote=false,
+	basicstyle=\scriptsize\ttfamily,
+	firstnumber=1,% 
+	numberfirstline=false,% 
+	numbers=left,%
+	numberstyle=\tiny,% 
+	stepnumber=5,%
+	numbersep=5pt,% 
+	backgroundcolor=\color{blue!8},% 
+	tabsize=4,% 
+	keywordstyle=\color{green!65!black},% 
+	commentstyle=\color{blue},% 
+	stringstyle=\color{magenta},% 
+	breaklines=true,% 
+	emph={label},%
+	abovecaptionskip=10pt,% 
+	belowcaptionskip={\abovecaptionskip},%
+	showstringspaces=false, 
+	literate={Ê}{{\^{E}}}1
+}%
+
+\pgfdeclareimage[width=0.85cm, height=1.10cm]{ufpa}{Figures/logo_ufpa}
+\logo{\pgfuseimage{ufpa}}
+
+\hypersetup{
+	pdftitle={Curso Básico de Arduino}
+	pdfauthor={Cassio Trindade Batista}
+}
+\fi
+
+\title[Curso Básico de Arduino\hspace{3.10cm}\thepage/\pageref{LastPage}]
+{Introdução ao Arduino}
+
+\author[Cassio Batista, Iago Souza]{
+Cassio Trindade Batista\\[2pt]
+Iago Souza de Sousa}
+
+\institute{
+Universidade Federal do Pará\\[1pt]
+Instituto de Tecnologia\\[1pt]
+Faculdade de Engenharia da Computação e Telecomunicações\\[2pt]
+III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
+\begin{figure}
+	\includegraphics[width=.15\textwidth]{Figures/logo_ufpa}
+\end{figure}
+%\vspace{-.6cm}
+}
+\date{\small{5 à 9 de outubro de 2015}}
+
+\begin{document}
+\begin{frame}[plain]
+	\titlepage
+\end{frame}
+
+\section{Introdução}
+\subsection{Introdução}
+\begin{frame}{Introdução}
+\begin{itemize}
+	\item Baseado em ``\textit{Introduction to Arduino}'', de Alan G. Smith
+\end{itemize}
+\begin{block}{O que é Arduino?}
+\begin{itemize}
+	\item O \textit{Hardware};
+	\item O ambiente de desenvolvimento;
+	\item A comunidade (\url{https://www.arduino.cc})
+\end{itemize}
+\end{block}
+\begin{itemize}
+	\item Arduino é a placa de desenvolvimento construída sobre o 
+	microcontrolador ATmega, da fabricante Atmel, contendo uma IDE para 
+	programação e um fórum/comunidade para discussão.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Arduino UNO}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/arduino_uno}
+\end{figure}
+\end{frame}
+
+\begin{frame}{MicroControlador x MicroProcessador}
+\begin{itemize}
+	\item Ambos realizam operações de busca, decodificação e execução; \medskip
+	\item Microprocessador: CI responsável pelo processamento de dados, como uma
+	ULA, mas precisa receber ordens externas e ter outros componentes externos para funcionar; \medskip
+	\item Microcontrolador: Contém $\mu$processador, RAM, ROM, \textit{timers}, 
+	I/Os... tudo em um único CI;
+\end{itemize}
+\begin{block}{O Arduino é o quê, afinal?}
+\begin{itemize}
+	\item Arduino é a PCB criada para funcionar sobre o microcontrolador ATmega,
+	da Atmel.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Arduino x ATmega328p}
+\begin{itemize}
+	\item Pinos do Arduino != Pinos ATmega328p
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=.95\textwidth]{Figures/pinmapping}
+\end{figure}
+\end{frame}
+
+\begin{frame}{IDE de Programação}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/arduino_ide}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Palavras Chaves e Funções}
+\begin{itemize}
+	\item Funções: \smallskip
+	\begin{itemize}
+		\item setup() e loop() \medskip
+		\item analogRead(), digitalRead(), analogWrite(), digitalWrite() ... \bigskip
+	\end{itemize}
+	\item \textit{Statement}: if, else, while, for ... \bigskip
+	\item Tipos: void, int, double, float, char ... \bigskip
+\end{itemize}
+\end{frame}
+
+\section{Experiências}
+\subsection{Semáforo}
+\begin{frame}{Exp. 1: Semáforo}
+\begin{itemize}
+	\item Objetivo: Fazer a sinalização de duas vias que se cruzam
+	\item Materiais: 6 LEDs e 1 botão (opcional).
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=.5\textwidth]{Figures/semaforo1}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 1: Semáforo -- Funcionamento}
+\begin{table}[!h]
+\centering
+\begin{tabular}{cll}
+	\hline
+	  & Via 1 & Via 2 \\
+	\hline
+	1 & \textcolor{red}{Fechado}    & \textcolor{green}{Aberto}\\
+	2 & \textcolor{red}{Fechado}    & \textcolor{yellow}{Atenção}\\
+	3 & \textcolor{red}{Fechado}    & \textcolor{red}{Fechado}\\
+	4 & \textcolor{green}{Aberto}   & \textcolor{red}{Fechado}\\
+	5 & \textcolor{yellow}{Atenção} & \textcolor{red}{Fechado}\\
+	6 & \textcolor{red}{Fechado}    & \textcolor{red}{Fechado}\\[5pt]
+	7 & \textcolor{red}{Fechado}    & \textcolor{green}{Aberto}\\
+	\hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 1: Semáforo -- Código (1/2)}
+\lstinputlisting[firstline=1, lastline=21]{codes/exp1.ino}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 1: Semáforo -- Código (2/2)}
+\lstinputlisting[firstline=23, lastline=40]{codes/exp1.ino}
+\begin{center} 
+\dots
+\end{center}
+\end{frame}
+
+\begin{frame}{Obrigado!}
+\begin{figure}
+	\includegraphics[width=.3\textwidth]{Figures/logo_ufpa}\hspace{1cm}
+	\includegraphics[width=.33\textwidth]{Figures/arduino_logo}\\
+\end{figure}
+\begin{itemize}
+\centering\Large
+	\item[] \texttt{cassio.batista.13@gmail.com}
+	\item[] \texttt{iagosousza@gmail.com}
+\end{itemize}
+\end{frame}
+\end{document}
+%%% EOF %%%
