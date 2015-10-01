@@ -1,4 +1,4 @@
-\documentclass[subsection=false]{beamer}
+\documentclass[subsection=false,compress]{beamer}
 \setbeamertemplate{footline}[frame number] % numerar slides
 \setbeamertemplate{navigation symbols}{} % retirar barra de navegação
 
@@ -71,7 +71,7 @@ Instituto de Tecnologia\\[1pt]
 Faculdade de Engenharia da Computação e Telecomunicações\\[2pt]
 III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \begin{figure}
-	\includegraphics[width=.15\textwidth]{Figures/logo_ufpa}
+	\includegraphics[width=.16\textwidth]{Figures/logo_ufpa}
 \end{figure}
 %\vspace{-.6cm}
 }
@@ -98,21 +98,52 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \begin{itemize}
 	\item Arduino é a placa de desenvolvimento construída sobre o 
 	microcontrolador ATmega, da fabricante Atmel, contendo uma IDE para 
-	programação e um fórum/comunidade para discussão.
+	programação e um fórum/comunidade para discussão. \medskip
+	\item \textit{Open-source prototyping platform based on easy-to-use hardware
+	and software}%\footnote{https://www.arduino.cc/en/Guide/Introduction}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Vantagens}
+\begin{itemize}
+	\item Barato: U\$ 50.00, em média \medskip
+	\item \textit{Cross-Platform}: Windows, OSX, Linux. \medskip
+	\item Ambiente de programação: IDE \textit{easy-to-use} para iniciantes \medskip
+	\item \textit{Open-source software}: Pode ser expandido através do C++ \medskip
+	\item \textit{Open-source hardware}: Designers de circuito podem fazer sua própria versão \medskip
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Arduino: Diferentes Plataformas }
+\begin{figure}
+	\includegraphics[width=\textwidth]{Figures/arduinos}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Arduino UNO}
 \begin{figure}
-	\includegraphics[width=.8\textwidth]{Figures/arduino_uno}
+	\includegraphics[width=.85\textwidth]{Figures/arduino_uno}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Arduino UNO --- Especificações}
+\begin{itemize}
+	\item Microcontrolador: ATmega328P \medskip
+	\item 14 pinos digitais de I/O (6 de PWM) \medskip
+	\item 6 pinos analógicos \medskip
+	\item 32~KB de memória Flash (armaz. \textit{sketch}) \medskip
+	\item 2~KB de memória SRAM (criação e manipulação de variáveis) \medskip
+	\item 1~KB de memória EEPROM \medskip
+	\item 16~MHz de Clock
+\end{itemize}
 \end{frame}
 
 \begin{frame}{MicroControlador x MicroProcessador}
 \begin{itemize}
 	\item Ambos realizam operações de busca, decodificação e execução; \medskip
 	\item Microprocessador: CI responsável pelo processamento de dados, como uma
-	ULA, mas precisa receber ordens externas e ter outros componentes externos para funcionar; \medskip
+	ULA, mas precisa receber ordens externas e ter outros componentes externos 
+	para funcionar; \medskip
 	\item Microcontrolador: Contém $\mu$processador, RAM, ROM, \textit{timers}, 
 	I/Os... tudo em um único CI;
 \end{itemize}
@@ -156,7 +187,7 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \begin{frame}{Exp. 1: Semáforo}
 \begin{itemize}
 	\item Objetivo: Fazer a sinalização de duas vias que se cruzam
-	\item Materiais: 6 LEDs e 1 botão (opcional).
+	\item Materiais: 6 LEDs (ou 2 LEDs RGB). 
 \end{itemize}
 \begin{figure}
 	\includegraphics[width=.5\textwidth]{Figures/semaforo1}
@@ -191,6 +222,17 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \begin{center} 
 \dots
 \end{center}
+\end{frame}
+
+\subsection{Termostato}
+\begin{frame}{Exp. 3: Ventoinha e Sensor de Temperatura}
+\begin{itemize}
+	\item Objetivo: 
+	\item Materiais: 
+\end{itemize}
+%\begin{figure}
+%	\includegraphics[width=.5\textwidth]{Figures/semaforo1}
+%\end{figure}
 \end{frame}
 
 \begin{frame}{Obrigado!}
