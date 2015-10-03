@@ -273,28 +273,43 @@ int estado = digitalRead(pinoAnalógico);
 \lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
 \end{frame}
 
-\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs}
+\begin{frame}{Desafio 2: Entrada Serial e LEDs}
 \begin{itemize}
 	\item Objetivo: Acionar um LED de acordo com a entrada serial \bigskip
-	\item[\textcolor{yellow}{$\bullet\rightarrow$}] Se a entrada for ``A'' ou ``a'' \medskip
-	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for ``V'' (somente maiúsculo) \medskip
+	\item[\textcolor{yellow}{$\bullet\rightarrow$}] Se a entrada começar com ``A'' ou ``a'' \medskip
+	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for exatamente ``V'' (somente maiúsculo) \medskip
 	\item[\textcolor{red}{$\bullet\rightarrow$}] Se a entrada for qualquer variação de ``red'' (``ReD'', ``rED'', ...) \medskip
 	\item \textit{Background}: Experiências 1 e 2 \bigskip
+	\item Tempo: 5 minutos
 \end{itemize}
-%\begin{itemize}
-%	\item Dicas:
-%	\begin{itemize}
-%		\item Biblioteca \texttt{string.h} \smallskip
-%		\item Funções strlen()
-%		\item Caracteres ASCII
-%	\end{itemize}
-%\end{itemize}
+\end{frame}
+
+\begin{frame}{Desafio 2: Entrada Serial e LEDs}
+\begin{itemize}
+	\item Dicas:
+	\begin{itemize}
+		\item Biblioteca \texttt{string.h} \medskip
+		\item Funções strlen() \medskip
+		\item Caracteres ASCII \medskip
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{Desafio 2: Entrada Serial e LEDs --- Tabela ASCII}
+\begin{figure}
+	\includegraphics[width=\textwidth]{Figures/ascii_table}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs --- Tabela ASCII}
+\lstinputlisting{codes/desafio2.ino}
 \end{frame}
 
 \subsection{Termostato}
 \begin{frame}{Exp. 3: Ventoinha e Sensor de Temperatura}
 \begin{itemize}
-	\item Objetivo: Definir uma temperatura ótima e um \textit{threshold}\smallskip
+	\item Objetivo: Simular um Termostado \medskip
+	\item Definir uma temperatura ótima e um \textit{threshold}\smallskip
 	\begin{itemize}
 		\item Quente: $T_{sensor}$ $\textgreater$ ótima+thres $\rightarrow$ ventoinha ON  + \textbf{\textcolor{red}{LED}}; \medskip
 		\item Frio: $T_{sensor}$ $\textless$    ótima-thres $\rightarrow$ ventoinha OFF + \textbf{\textcolor{yellow}{LED}}; \medskip
