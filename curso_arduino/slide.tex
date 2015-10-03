@@ -68,8 +68,9 @@ Iago Souza de Sousa}
 \institute{
 Universidade Federal do Pará\\[1pt]
 Instituto de Tecnologia\\[1pt]
-Faculdade de Engenharia da Computação e Telecomunicações\\[2pt]
-III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
+Faculdade de Engenharia da Computação e Telecomunicações\\[1pt]
+III Semana Acadêmica da Faculdade de Ciência da Computação\\[2pt]
+Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \begin{figure}
 	\includegraphics[width=.16\textwidth]{Figures/logo_ufpa}
 \end{figure}
@@ -84,7 +85,20 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 
 \section{Introdução}
 \subsection{Introdução}
-\begin{frame}{Introdução}
+\begin{frame}{Cronograma}
+\begin{itemize}
+	\item Arduino \textit{Overview} \medskip
+	\begin{itemize}
+		\item Vantagens \medskip
+		\item Diferentes plataformas \medskip
+		\item Especificações \medskip
+		\item $\mu$Controlador $\times \ \mu$Processador \bigskip 
+	\end{itemize}
+	\item Experiências e Desafios \medskip
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\textit{Overview}}
 \begin{itemize}
 	\item Baseado em ``\textit{Introduction to Arduino}'', de Alan G. Smith
 \end{itemize}
@@ -104,6 +118,8 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \end{itemize}
 \end{frame}
 
+
+
 \begin{frame}{Vantagens}
 \begin{itemize}
 	\item Barato: U\$ 50.00, em média \medskip
@@ -114,7 +130,7 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Arduino: Diferentes Plataformas }
+\begin{frame}{Arduino: Diferentes Plataformas}
 \begin{figure}
 	\includegraphics[width=\textwidth]{Figures/arduinos}
 \end{figure}
@@ -138,7 +154,7 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}{MicroControlador x MicroProcessador}
+\begin{frame}{MicroControlador $\times$ MicroProcessador}
 \begin{itemize}
 	\item Ambos realizam operações de busca, decodificação e execução; \medskip
 	\item Microprocessador: CI responsável pelo processamento de dados, como uma
@@ -157,7 +173,7 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 
 \begin{frame}{Arduino x ATmega328p}
 \begin{itemize}
-	\item Pinos do Arduino != Pinos ATmega328p
+	\item Pinos do Arduino são \textbf{\large diferentes} dos pinos do ATmega328p
 \end{itemize}
 \begin{figure}
 	\includegraphics[width=.95\textwidth]{Figures/pinmapping}
@@ -170,17 +186,17 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \end{figure}
 \end{frame}
 
-\begin{frame}{Palavras Chaves e Funções}
-\begin{itemize}
-	\item Funções: \smallskip
-	\begin{itemize}
-		\item setup() e loop() \medskip
-		\item analogRead(), digitalRead(), analogWrite(), digitalWrite() ... \bigskip
-	\end{itemize}
-	\item \textit{Statement}: if, else, while, for ... \bigskip
-	\item Tipos: void, int, double, float, char ... \bigskip
-\end{itemize}
-\end{frame}
+%\begin{frame}{Palavras Chaves e Funções}
+%\begin{itemize}
+%	\item Funções: \smallskip
+%	\begin{itemize}
+%		\item setup() e loop() \medskip
+%		\item analogRead(), digitalRead(), analogWrite(), digitalWrite() ... \bigskip
+%	\end{itemize}
+%	\item \textit{Statement}: if, else, while, for ... \bigskip
+%	\item Tipos: void, int, double, float, char ... \bigskip
+%\end{itemize}
+%\end{frame}
 
 \section{Experiências}
 \subsection{Semáforo}
@@ -207,7 +223,7 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 	4 & \textcolor{green}{Aberto}   & \textcolor{red}{Fechado}\\
 	5 & \textcolor{yellow}{Atenção} & \textcolor{red}{Fechado}\\
 	6 & \textcolor{red}{Fechado}    & \textcolor{red}{Fechado}\\[5pt]
-	7 & \textcolor{red}{Fechado}    & \textcolor{green}{Aberto}\\
+	1 & \textcolor{red}{Fechado}    & \textcolor{green}{Aberto}\\
 	\hline
 \end{tabular}
 \end{table}
@@ -224,15 +240,72 @@ III Semana Acadêmica da Faculdade de Ciência da Computação\\[1pt]
 \end{center}
 \end{frame}
 
+\begin{frame}[fragile]{Desafio 1: Semáforo e Botão}
+\begin{itemize}
+	\item Objetivo: Acionar um semáforo utilizando um botão \bigskip
+	\item Materiais: 3 LEDs (ou 1 LED RGB) e 1 botão \bigskip
+	\item \textit{Background}: Experiência 1 \bigskip
+	\pause
+	\item Sugestão:
+\end{itemize}
+\begin{lstlisting}[basicstyle=\large\ttfamily]
+int estado = digitalRead(pinoAnalógico);
+\end{lstlisting}
+\end{frame}
+
+\subsection{Serial I/O}
+\begin{frame}{Exp. 2: Entrada e Saída Serial (Monitor)}
+\begin{itemize}
+	\item Objetivo: Ler uma string do serial monitor e imprimí-la também no serial monitor \medskip
+	\item Materiais: ---
+\end{itemize}
+\begin{itemize}
+	\item Biblioteca Serial \smallskip
+	\begin{itemize}
+		\item Begin() \medskip
+		\item Read() \medskip
+		\item Print() \medskip
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 2: Entrada e Saída Serial -- Código}
+\lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
+\end{frame}
+
+\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs}
+\begin{itemize}
+	\item Objetivo: Acionar um LED de acordo com a entrada serial \bigskip
+	\item[\textcolor{yellow}{$\bullet\rightarrow$}] Se a entrada for ``A'' ou ``a'' \medskip
+	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for ``V'' (somente maiúsculo) \medskip
+	\item[\textcolor{red}{$\bullet\rightarrow$}] Se a entrada for qualquer variação de ``red'' (``ReD'', ``rED'', ...) \medskip
+	\item \textit{Background}: Experiências 1 e 2 \bigskip
+\end{itemize}
+%\begin{itemize}
+%	\item Dicas:
+%	\begin{itemize}
+%		\item Biblioteca \texttt{string.h} \smallskip
+%		\item Funções strlen()
+%		\item Caracteres ASCII
+%	\end{itemize}
+%\end{itemize}
+\end{frame}
+
 \subsection{Termostato}
 \begin{frame}{Exp. 3: Ventoinha e Sensor de Temperatura}
 \begin{itemize}
-	\item Objetivo: 
-	\item Materiais: 
+	\item Objetivo: Definir uma temperatura ótima e um \textit{threshold}\smallskip
+	\begin{itemize}
+		\item Quente: $T_{sensor}$ $\textgreater$ ótima+thres $\rightarrow$ ventoinha ON  + \textbf{\textcolor{red}{LED}}; \medskip
+		\item Frio: $T_{sensor}$ $\textless$    ótima-thres $\rightarrow$ ventoinha OFF + \textbf{\textcolor{yellow}{LED}}; \medskip
+		\item Ideal: $\rightarrow$ ventoinha OFF + \textbf{\textcolor{green}{LED}}; \medskip
+	\end{itemize}
+	\item Materiais: 3 LEDs, 1 Cooler, 1 sensor de temperatura 
 \end{itemize}
-%\begin{figure}
-%	\includegraphics[width=.5\textwidth]{Figures/semaforo1}
-%\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 3: Ventoinha e Sensor de Temperatura -- Código}
+%\lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
 \end{frame}
 
 \begin{frame}{Obrigado!}
