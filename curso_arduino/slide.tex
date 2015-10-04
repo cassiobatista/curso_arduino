@@ -180,10 +180,28 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
+\begin{frame}{Alimentação}
+\begin{itemize}
+	\item \textbf{V\textit{in}}: Entrada de alimentação da placa quando utilizada uma fonte externa.
+	\item \textbf{5V}: Fonte de alimentação para o microcontrolador e outros componentes da placa.
+	\item \textbf{3V3}: Alimentação de 3,3 V fornecida pelo controlador USB. 
+	\item \textbf{GND}(ground): Pino terra.  
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}{IDE de Programação}
 \begin{figure}
 	\includegraphics[width=.8\textwidth]{Figures/arduino_ide}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Programação}
+\begin{itemize}
+	\item A linguagem utilizada no Arduino tem como referência C++.
+	\item A função \textit{setup()} é utilizada para inicializar valores assim que a placa é ligada.
+	\item A função \textit{loop()} é executada várias vezes em um loop até que haja alguma interferência.
+\end{itemize}
 \end{frame}
 
 %\begin{frame}{Palavras Chaves e Funções}
@@ -197,6 +215,21 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 %	\item Tipos: void, int, double, float, char ... \bigskip
 %\end{itemize}
 %\end{frame}
+
+\begin{frame}{Funções}
+\begin{itemize}
+	\item pinMode(): Inicializa um pino como entrada (INPUT) ou sáida (OUTPUT).
+		\begin{block}{Exemplo:}
+			pinMode(13, OUTPUT); //Setando o pino 13 como saída
+		\end{block}
+	\item digitalWrite(): Escreve uma informação digital, ou seja, 0 (LOW) ou 1 (HIGH) em um pino de saída.
+		\begin{block}{Exemplo:}
+			digitalWrite(12, HIGH); 
+		\end{block}
+	\end{itemize}
+\end{frame}
+
+
 
 \section{Experiências}
 \subsection{Semáforo}
