@@ -92,8 +92,13 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 		\item Vantagens \medskip
 		\item Diferentes plataformas \medskip
 		\item Especificações \medskip
-		\item $\mu$Controlador $\times \ \mu$Processador \bigskip 
+		\item $\mu$Controlador $\times \ \mu$Processador \medskip
+		\item Especificações \medskip
+		\item Pinos de alimentação \medskip
+		\item Microcontrolador ATmega328p \medskip
+		\item Programação \medskip 
 	\end{itemize}
+	\item \textit{Background} em Eletrônica \medskip
 	\item Experiências e Desafios \medskip
 \end{itemize}
 \end{frame}
@@ -117,8 +122,6 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 	and software}%\footnote{https://www.arduino.cc/en/Guide/Introduction}
 \end{itemize}
 \end{frame}
-
-
 
 \begin{frame}{Vantagens}
 \begin{itemize}
@@ -147,7 +150,7 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 	\item Microcontrolador: ATmega328P \medskip
 	\item 14 pinos digitais de I/O (6 de PWM) \medskip
 	\item 6 pinos analógicos \medskip
-	\item 32~KB de memória Flash (armaz. \textit{sketch}) \medskip
+	\item 32~KB de memória Flash (armazenamento de \textit{sketch}) \medskip
 	\item 2~KB de memória SRAM (criação e manipulação de variáveis) \medskip
 	\item 1~KB de memória EEPROM \medskip
 	\item 16~MHz de Clock
@@ -180,15 +183,59 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
-\begin{frame}{Alimentação}
+\begin{frame}{Pinos de Alimentação}
 \begin{itemize}
-	\item \textbf{V\textit{in}}: Entrada de alimentação da placa quando utilizada uma fonte externa.
-	\item \textbf{5V}: Fonte de alimentação para o microcontrolador e outros componentes da placa.
-	\item \textbf{3V3}: Alimentação de 3,3 V fornecida pelo controlador USB. 
-	\item \textbf{GND}(ground): Pino terra.  
+	\item \textbf{V$_{\text{in}}$}: Entrada de alimentação da placa quando 
+	utilizada uma fonte externa. \medskip
+	\item \textbf{5V}: Fonte de alimentação para o microcontrolador e outros
+	componentes da placa. \medskip
+	\item \textbf{3V3}: Alimentação de 3,3 V fornecida pelo controlador USB. \medskip
+	\item \textbf{GND} (\textit{ground}): Pino terra. \medskip
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{Programação}
+\begin{itemize}
+	\item A linguagem utilizada no Arduino tem como referência C++. \smallskip
+	\item \texttt{setup()}: função utilizada para inicializar valores assim que a placa é ligada. \smallskip
+	\item \texttt{loop()}: função executada várias vezes até que haja alguma interferência. \smallskip
+	\item \texttt{pinMode()}: Inicializa um pino como entrada (INPUT) ou saída 
+	(OUTPUT).
+	\begin{lstlisting}
+	pinMode(2, INPUT); //Setando o pino 2 como entrada
+	pinMode(13, OUTPUT); //Setando o pino 13 como saída
+	\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Programação}
+\begin{itemize}
+	\item \texttt{digitalWrite()}: Escreve uma informação digital, ou seja, 0 
+	(LOW, 0V) ou 1 (HIGH, 5V) em um pino de saída. \smallskip
+	\begin{lstlisting}
+	digitalWrite(13, HIGH); //tensão alta no pino 13 
+	digitalWrite(13, LOW); //tensão baixa no pino 13
+	\end{lstlisting}
+
+	\item \texttt{digitalRead()}: Lê uma informação digital, ou seja, 0 
+	(0V) ou 1 (5V) em um pino de entrada. \smallskip
+	\begin{lstlisting}
+	int valor = digitalRead(2); //Lê pino 2
+	\end{lstlisting}
+
+	\item \texttt{analogWrite()}: Escreve uma informação analógica, ou seja, um 
+	valor inteiro de 8 bits de 0 à 255 em um pino de saída \medskip
+	\begin{lstlisting}
+	analogWrite(13, 250); //tensão [0V--5V] [0--255] pino 13 
+	\end{lstlisting}
+
+	\item \texttt{analogRead()}: Lê uma informação analógica, geralmente de 
+	sensores
+	\begin{lstlisting}
+	int valor = analogRead(A0); //Lê pino analógico 0
+	\end{lstlisting}
+\end{itemize}
+\end{frame}
 
 \begin{frame}{IDE de Programação}
 \begin{figure}
@@ -196,42 +243,33 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
-\begin{frame}{Programação}
-\begin{itemize}
-	\item A linguagem utilizada no Arduino tem como referência C++.
-	\item A função \textit{setup()} é utilizada para inicializar valores assim que a placa é ligada.
-	\item A função \textit{loop()} é executada várias vezes em um loop até que haja alguma interferência.
-\end{itemize}
-\end{frame}
-
-%\begin{frame}{Palavras Chaves e Funções}
-%\begin{itemize}
-%	\item Funções: \smallskip
-%	\begin{itemize}
-%		\item setup() e loop() \medskip
-%		\item analogRead(), digitalRead(), analogWrite(), digitalWrite() ... \bigskip
-%	\end{itemize}
-%	\item \textit{Statement}: if, else, while, for ... \bigskip
-%	\item Tipos: void, int, double, float, char ... \bigskip
-%\end{itemize}
-%\end{frame}
-
-\begin{frame}{Funções}
-\begin{itemize}
-	\item pinMode(): Inicializa um pino como entrada (INPUT) ou sáida (OUTPUT).
-		\begin{block}{Exemplo:}
-			pinMode(13, OUTPUT); //Setando o pino 13 como saída
-		\end{block}
-	\item digitalWrite(): Escreve uma informação digital, ou seja, 0 (LOW) ou 1 (HIGH) em um pino de saída.
-		\begin{block}{Exemplo:}
-			digitalWrite(12, HIGH); 
-		\end{block}
-	\end{itemize}
-\end{frame}
-
-
-
 \section{Experiências}
+\begin{frame}{BG Eletrônica: Protoboard}
+\begin{itemize}
+	\item Ligação em série:
+	\begin{itemize}
+		\item {\bf A {e} D}: horizontal
+		\item {\bf B {e} C}: vertical
+	\end{itemize}
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/protoboard}
+\end{figure}
+\end{frame}
+
+\begin{frame}{BG Eletrônica: LED}
+\begin{figure}
+	\includegraphics[width=.6\textwidth]{Figures/led}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Parte Prática}
+\begin{center}
+	\Huge
+	Experiências e Desafios
+\end{center}
+\end{frame}
+
 \subsection{Semáforo}
 \begin{frame}{Exp. 1: Semáforo}
 \begin{itemize}
@@ -322,26 +360,20 @@ int estado = digitalRead(pinoAnalógico);
 	\item Dicas:
 	\begin{itemize}
 		\item Biblioteca \texttt{string.h} \medskip
-		\item Funções strlen() \medskip
+		\item Funções: \texttt{strlen(), strcmp()} \medskip
 		\item Caracteres ASCII \medskip
 	\end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[plain]{Desafio 2: Entrada Serial e LEDs --- Tabela ASCII}
-\begin{figure}
-	\includegraphics[width=\textwidth]{Figures/ascii_table}
-\end{figure}
-\end{frame}
-
-\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs --- Tabela ASCII}
+\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs --- Código}
 \lstinputlisting{codes/desafio2.ino}
 \end{frame}
 
 \subsection{Termostato}
 \begin{frame}{Exp. 3: Ventoinha e Sensor de Temperatura}
 \begin{itemize}
-	\item Objetivo: Simular um Termostado \medskip
+	\item Objetivo: Simular um Termostato \medskip
 	\item Definir uma temperatura ótima e um \textit{threshold}\smallskip
 	\begin{itemize}
 		\item Quente: $T_{sensor}$ $\textgreater$ ótima+thres $\rightarrow$ ventoinha ON  + \textbf{\textcolor{red}{LED}}; \medskip
@@ -353,7 +385,28 @@ int estado = digitalRead(pinoAnalógico);
 \end{frame}
 
 \begin{frame}[fragile]{Exp. 3: Ventoinha e Sensor de Temperatura -- Código}
+Coming soon....
 %\lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
+\end{frame}
+
+\section{Shields}
+\begin{frame}{Shields}
+Coming soon....
+\end{frame}
+
+\section{Apêndice}
+\subsection{ASCII}
+\begin{frame}[plain]{Tabela ASCII}
+\begin{figure}
+	\includegraphics[width=\textwidth]{Figures/ascii_table}
+\end{figure}
+\end{frame}
+
+\subsection{Resistor}
+\begin{frame}[plain]{Código dos Resistores}
+\begin{figure}
+	\includegraphics[width=\textwidth]{Figures/resistor_table}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Obrigado!}
