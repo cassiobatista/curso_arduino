@@ -18,7 +18,7 @@ void setup() {
 	pinMode(LED_R2, OUTPUT);
 	pinMode(LED_Y2, OUTPUT);
 	pinMode(LED_G2, OUTPUT);
-}
+}//fecha setup()
 
 void loop() {
 	// #1 fechado na primeira via e aberto na segunda
@@ -74,4 +74,4 @@ void loop() {
 	digitalWrite(LED_Y2, LOW);
 	digitalWrite(LED_G2, LOW);
 	delay(2000); //2 seconds
-}
+}//EOF

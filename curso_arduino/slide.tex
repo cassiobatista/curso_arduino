@@ -38,7 +38,7 @@
 	numbersep=5pt,% 
 	backgroundcolor=\color{blue!8},% 
 	tabsize=4,% 
-	keywordstyle=\color{green!65!black},% 
+	keywordstyle=\color{green!50!black},% 
 	commentstyle=\color{blue},% 
 	stringstyle=\color{magenta},% 
 	breaklines=true,% 
@@ -243,6 +243,13 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
+%\begin{frame}{}
+%\begin{itemize}
+%	\item \textit{Case sensitive}: digitalWrite != DIgitALwrITE \medskip
+%	\item protoboard series
+%\end{itemize}
+%\end{frame}
+
 \section{Experiências}
 \begin{frame}{BG Eletrônica: Protoboard}
 \begin{itemize}
@@ -351,7 +358,6 @@ int estado = digitalRead(pinoAnalógico);
 	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for exatamente ``V'' (somente maiúsculo) \medskip
 	\item[\textcolor{red}{$\bullet\rightarrow$}] Se a entrada for qualquer variação de ``red'' (``ReD'', ``rED'', ...) \medskip
 	\item \textit{Background}: Experiências 1 e 2 \bigskip
-	\item Tempo: 5 minutos
 \end{itemize}
 \end{frame}
 
@@ -371,7 +377,7 @@ int estado = digitalRead(pinoAnalógico);
 \end{frame}
 
 \subsection{Termostato}
-\begin{frame}{Exp. 3: Ventoinha e Sensor de Temperatura}
+\begin{frame}{Exp. 3: Sensor de Temperatura}
 \begin{itemize}
 	\item Objetivo: Simular um Termostato \medskip
 	\item Definir uma temperatura ótima e um \textit{threshold}\smallskip
@@ -384,9 +390,12 @@ int estado = digitalRead(pinoAnalógico);
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Exp. 3: Ventoinha e Sensor de Temperatura -- Código}
-Coming soon....
-%\lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
+\begin{frame}[fragile]{Exp. 3: Sensor de Temperatura -- Código (1/2)}
+\lstinputlisting[firstline=1, lastline=20]{codes/exp3.ino}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 3: Sensor de Temperatura -- Código (2/2)}
+\lstinputlisting[firstline=22, lastline=45]{codes/exp3.ino}
 \end{frame}
 
 \section{Shields}
