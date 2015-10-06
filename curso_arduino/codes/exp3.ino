@@ -8,7 +8,7 @@ void setup() {
 
 void loop() {
 	float T_sensor = 100.0*analogRead(A0)/1024.0;
-	Serial.print("Sensor: ")
+	Serial.print("Sensor: ");
 	Serial.println(T_sensor);
 
 	if(T_sensor > 80.0) {
