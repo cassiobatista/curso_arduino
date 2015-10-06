@@ -376,26 +376,38 @@ int estado = digitalRead(pinoAnalógico);
 \lstinputlisting{codes/desafio2.ino}
 \end{frame}
 
-\subsection{Termostato}
+\subsection{Luz}
 \begin{frame}{Exp. 3: Sensor de Temperatura}
 \begin{itemize}
-	\item Objetivo: Simular um Termostato \medskip
-	\item Definir uma temperatura ótima e um \textit{threshold}\smallskip
+	\item Objetivo: Simular o controle de luz do ambiente \medskip
+	\item Definir faixas de luminosidade baseadas no \textit{feedback} do sensor \smallskip
 	\begin{itemize}
-		\item Quente: $T_{sensor}$ $\textgreater$ ótima+thres $\rightarrow$ ventoinha ON  + \textbf{\textcolor{red}{LED}}; \medskip
-		\item Frio: $T_{sensor}$ $\textless$    ótima-thres $\rightarrow$ ventoinha OFF + \textbf{\textcolor{yellow}{LED}}; \medskip
-		\item Ideal: $\rightarrow$ ventoinha OFF + \textbf{\textcolor{green}{LED}}; \medskip
+		\item Claro: $T_{sensor}$ $\textgreater$ 80 $\rightarrow$ Dois LEds apagados; \medskip
+		\item Escuro: $T_{sensor}$ $\textless$   20 $\rightarrow$ Dois LEDs acesos; \medskip
+		\item Ideal: $\rightarrow$ Um LED aceso e outro apagado; \medskip
 	\end{itemize}
-	\item Materiais: 3 LEDs, 1 Cooler, 1 sensor de temperatura 
+	\item Materiais: 2 LEDs, 1 sensor de Luminosidade 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{Exp. 3: Sensor de Temperatura -- Código (1/2)}
-\lstinputlisting[firstline=1, lastline=20]{codes/exp3.ino}
+\begin{frame}[fragile]{Exp. 3: Sensor de Luminosidade -- Código (1/2)}
+\lstinputlisting[firstline=1, lastline=7]{codes/exp3.ino}
 \end{frame}
 
-\begin{frame}[fragile]{Exp. 3: Sensor de Temperatura -- Código (2/2)}
-\lstinputlisting[firstline=22, lastline=45]{codes/exp3.ino}
+\begin{frame}[fragile]{Exp. 3: Sensor de Luminosidade -- Código (2/2)}
+\lstinputlisting[firstline=9, lastline=28]{codes/exp3.ino}
+\end{frame}
+
+\subsection{Potenciômetro}
+\begin{frame}{Exp. 4: Brincando com Potenciômetros}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 4: Potenciômetro -- Código (1/2)}
+\lstinputlisting[firstline=1, lastline=9]{codes/exp4.ino}
+\end{frame}
+
+\begin{frame}[fragile]{Exp. 4: Potenciômetro -- Código (2/2)}
+\lstinputlisting[firstline=11, lastline=25]{codes/exp4.ino}
 \end{frame}
 
 \section{Shields}
