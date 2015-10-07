@@ -93,13 +93,12 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 		\item Diferentes plataformas \medskip
 		\item Especificações \medskip
 		\item $\mu$Controlador $\times \ \mu$Processador \medskip
-		\item Especificações \medskip
 		\item Pinos de alimentação \medskip
 		\item Microcontrolador ATmega328p \medskip
 		\item Programação \medskip 
 	\end{itemize}
-	\item \textit{Background} em Eletrônica \medskip
-	\item Experiências e Desafios \medskip
+	\item \textit{Background} info \medskip
+	\item Experiências \medskip
 \end{itemize}
 \end{frame}
 
@@ -134,6 +133,9 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{frame}
 
 \begin{frame}{Arduino: Diferentes Plataformas}
+\begin{itemize}
+	\item Uno, Mega, Nano, Duemilanove, Diecimila, Leonardo ...
+\end{itemize}
 \begin{figure}
 	\includegraphics[width=\textwidth]{Figures/arduinos}
 \end{figure}
@@ -243,12 +245,14 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
-%\begin{frame}{}
-%\begin{itemize}
-%	\item \textit{Case sensitive}: digitalWrite != DIgitALwrITE \medskip
-%	\item protoboard series
-%\end{itemize}
-%\end{frame}
+\begin{frame}{Serial Monitor}
+\begin{itemize}
+	\item GUI para comunicação \textbf{serial} entre o PC e o Arduino
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=.7\textwidth]{Figures/serialmonitor}
+\end{figure}
+\end{frame}
 
 \section{Experiências}
 \begin{frame}{BG Eletrônica: Protoboard}
@@ -270,10 +274,38 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \end{figure}
 \end{frame}
 
+\begin{frame}{BG Eletrônica: LED}
+\begin{itemize}
+	\item Sobre o \textit{ground} (GND): Fecha o circuito e permite circulação
+	de corrente elétrica
+\end{itemize}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/led_circuit}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{BG Programação: Tricks}
+\begin{itemize}
+	\item Case sensitive, assim como no C++:
+	\begin{lstlisting}
+	digitalWrite(PINO, HIGH); //correto
+	digitalWrite(PINO, high); //errado
+	DigitalwriTe(PINO, HIGH); //errado
+	\end{lstlisting}
+
+	\item Comentários:
+	\begin{lstlisting}
+	/* Isto é um comentário */
+	// Eles não fazem diferença no código
+	\end{lstlisting}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Parte Prática}
 \begin{center}
-	\Huge
-	Experiências e Desafios
+	\Huge\bf
+	Parte Prática:\\
+	Experiências
 \end{center}
 \end{frame}
 
@@ -291,6 +323,7 @@ Orientador: Nelson Cruz Sampaio Neto\\[1pt]
 \begin{frame}[fragile]{Exp. 1: Semáforo -- Funcionamento}
 \begin{table}[!h]
 \centering
+\LARGE\bf
 \begin{tabular}{cll}
 	\hline
 	  & Via 1 & Via 2 \\
@@ -351,43 +384,49 @@ int estado = digitalRead(pinoAnalógico);
 \lstinputlisting[firstline=1, lastline=22]{codes/exp2.ino}
 \end{frame}
 
-\begin{frame}{Desafio 2: Entrada Serial e LEDs}
-\begin{itemize}
-	\item Objetivo: Acionar um LED de acordo com a entrada serial \bigskip
-	\item[\textcolor{yellow}{$\bullet\rightarrow$}] Se a entrada começar com ``A'' ou ``a'' \medskip
-	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for exatamente ``V'' (somente maiúsculo) \medskip
-	\item[\textcolor{red}{$\bullet\rightarrow$}] Se a entrada for qualquer variação de ``red'' (``ReD'', ``rED'', ...) \medskip
-	\item \textit{Background}: Experiências 1 e 2 \bigskip
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Desafio 2: Entrada Serial e LEDs}
-\begin{itemize}
-	\item Dicas:
-	\begin{itemize}
-		\item Biblioteca \texttt{string.h} \medskip
-		\item Funções: \texttt{strlen(), strcmp()} \medskip
-		\item Caracteres ASCII \medskip
-	\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs --- Código}
-\lstinputlisting{codes/desafio2.ino}
-\end{frame}
+%\begin{frame}{Desafio 2: Entrada Serial e LEDs}
+%\begin{itemize}
+%	\item Objetivo: Acionar um LED de acordo com a entrada serial \bigskip
+%	\item[\textcolor{yellow}{$\bullet\rightarrow$}] Se a entrada começar com ``A'' ou ``a'' \medskip
+%	\item[\textcolor{green}{$\bullet\rightarrow$}] Se a entrada for exatamente ``V'' (somente maiúsculo) \medskip
+%	\item[\textcolor{red}{$\bullet\rightarrow$}] Se a entrada for qualquer variação de ``red'' (``ReD'', ``rED'', ...) \medskip
+%	\item \textit{Background}: Experiências 1 e 2 \bigskip
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Desafio 2: Entrada Serial e LEDs}
+%\begin{itemize}
+%	\item Dicas:
+%	\begin{itemize}
+%		\item Biblioteca \texttt{string.h} \medskip
+%		\item Funções: \texttt{strlen(), strcmp()} \medskip
+%		\item Caracteres ASCII \medskip
+%	\end{itemize}
+%\end{itemize}
+%\end{frame}
+%
+%\begin{frame}[fragile]{Desafio 2: Entrada Serial e LEDs --- Código}
+%\lstinputlisting{codes/desafio2.ino}
+%\end{frame}
 
 \subsection{Luz}
-\begin{frame}{Exp. 3: Sensor de Temperatura}
+\begin{frame}{Exp. 3: Sensor de Luminosidade}
 \begin{itemize}
 	\item Objetivo: Simular o controle de luz do ambiente \medskip
 	\item Definir faixas de luminosidade baseadas no \textit{feedback} do sensor \smallskip
 	\begin{itemize}
-		\item Claro: $T_{sensor}$ $\textgreater$ 80 $\rightarrow$ Dois LEds apagados; \medskip
-		\item Escuro: $T_{sensor}$ $\textless$   20 $\rightarrow$ Dois LEDs acesos; \medskip
+		\item Claro: $T_{sensor}$ $\textgreater$ 80.0 $\rightarrow$ Dois LEDs apagados; \medskip
+		\item Escuro: $T_{sensor}$ $\textless$   20.0 $\rightarrow$ Dois LEDs acesos; \medskip
 		\item Ideal: $\rightarrow$ Um LED aceso e outro apagado; \medskip
 	\end{itemize}
-	\item Materiais: 2 LEDs, 1 sensor de Luminosidade 
+	\item Materiais: 2 LEDs, 1 sensor de luz, 1 resistor de 10~k$\Omega$ 
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Exp. 3: Sensor de Luminosidade -- Esquemático}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/luz}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Exp. 3: Sensor de Luminosidade -- Código (1/2)}
@@ -399,7 +438,20 @@ int estado = digitalRead(pinoAnalógico);
 \end{frame}
 
 \subsection{Potenciômetro}
-\begin{frame}{Exp. 4: Brincando com Potenciômetros}
+\begin{frame}{Exp. 4: Brincando com Potenciômetro}
+\begin{itemize}
+	\item Objetivo: Acender somente um LED de acordo com uma faixa específica de
+	tensão, a qual será varia de acordo com a resistência do potenciômetro. À
+	medida que o giramos o potenciômetro, a fila de LEDs acesos ``anda''. \medskip
+	
+	\item Materiais: 1 potênciômetro e 5 LEDs \medskip
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Exp. 4: Brincando com Potenciômetro}
+\begin{figure}
+	\includegraphics[width=.8\textwidth]{Figures/potentiometer}
+\end{figure}
 \end{frame}
 
 \begin{frame}[fragile]{Exp. 4: Potenciômetro -- Código (1/2)}
@@ -412,30 +464,37 @@ int estado = digitalRead(pinoAnalógico);
 
 \section{Shields}
 \begin{frame}{Shields}
+\begin{itemize}
+	\item Placas de circuito que podem ser conectadas ao Arduino, expandindo sua capacidade.
+	\item Podem conter displays de LCD, sensores, módulos de comunicação, relés, etc.
+\end{itemize}
+\begin{block}{Arduino Ethernet Shield R3}
 	\begin{itemize}
-		\item Placas de circuito que podem ser conectadas ao Arduino, expandindo sua capacidade.
-		\item Podem conter displays de LCD, sensores, módulos de comunicação, relés, etc.
+		\item Especificado para conectar o Arduino a uma rede local.
+		\item A maneira mais simples e mais barata de ligar o Arduino à internet.
 	\end{itemize}
-	\begin{block}{Arduino Ethernet Shield R3}
-		\begin{itemize}
-			\item Especificado para conectar o Arduino a uma rede local.
-			\item A maneira mais simples e mais barata de ligar o Arduino à internet.
-		\end{itemize}
-	\end{block}
-	\begin{block}{Bluetooth Low Energy (BLE) Shield for Arduino 2.0}
-        	\begin{itemize}
-                        \item Adiciona ao Arduino a capacidade de conversar com outros dispositivos Bluetooth.
-                \end{itemize}
-        \end{block}
+\end{block}
+\begin{block}{Bluetooth Low Energy (BLE) Shield for Arduino 2.0}
+\begin{itemize}
+	\item Adiciona ao Arduino a capacidade de conversar com outros dispositivos Bluetooth.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}{Shields}
+\begin{figure}
+	\includegraphics[width=.9\textwidth]{Figures/shield_eth}
+	\caption{Shield Ethernet}
+\end{figure}
 \end{frame}
 
 \section{Apêndice}
-\subsection{ASCII}
-\begin{frame}[plain]{Tabela ASCII}
-\begin{figure}
-	\includegraphics[width=\textwidth]{Figures/ascii_table}
-\end{figure}
-\end{frame}
+%\subsection{ASCII}
+%\begin{frame}[plain]{Tabela ASCII}
+%\begin{figure}
+%	\includegraphics[width=\textwidth]{Figures/ascii_table}
+%\end{figure}
+%\end{frame}
 
 \subsection{Resistor}
 \begin{frame}[plain]{Código dos Resistores}
