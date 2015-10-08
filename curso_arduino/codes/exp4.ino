@@ -10,8 +10,8 @@ void setup() {
 
 void loop() {
 	/* tensao: [0--5V] */
-	float tensao = 5.0*analogRead(A0)/1024.0;
-	acender((int)(tensao+8.0));
+	int tensao = 5*analogRead(A0)/1024.0;
+	acender((tensao+8));
 	delay(300);
 }
 
